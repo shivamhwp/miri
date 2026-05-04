@@ -29,6 +29,13 @@ swift build -c release
 .build/release/miri
 ```
 
+To build a local macOS disk image:
+
+```bash
+scripts/package-macos.sh --version 0.1.0
+open dist/Miri-0.1.0-*.dmg
+```
+
 miri needs Accessibility permission, and the event tap may also need Input
 Monitoring permission. If you run it from a terminal, macOS may ask for the
 terminal app itself to get those permissions.
@@ -193,6 +200,17 @@ and window titles to match windows after restart.
 swift build
 swift run miri
 ```
+
+## Releases
+
+Release artifacts are built by `.github/workflows/release.yml`.
+
+- Push a stable tag like `v0.1.0` to publish a GitHub Release.
+- Run the workflow manually with `channel: nightly` to publish a prerelease.
+- The scheduled nightly checks whether `main` changed since the last nightly tag
+  before publishing.
+- The macOS artifact is a `Miri-<version>-arm64-darwin.dmg` containing
+  `Miri.app`.
 
 ## Notes
 
