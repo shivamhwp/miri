@@ -137,7 +137,7 @@ struct MiriConfig: Codable {
         hideMethod: .skyLightAlpha,
         debugLogging: false,
         rules: [
-            WindowRule(bundleID: "com.apple.finder", behavior: .ignore),
+            WindowRule(bundleID: "com.apple.finder", behavior: .float),
         ]
     )
 
